@@ -1,0 +1,41 @@
+from django.db import models
+
+class Game(models.Model):
+    title = models.CharField(max_length=100)
+    genre = models.CharField(max_length=50)
+    release_date = models.DateField()
+    developer = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.title
+
+
+
+from rest_framework import serializers
+from .models import Game
+
+class GameSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Game
+        fields = '__all__'
+
+
+from rest_framework import viewsets
+from .models import Game
+from .serializers import GameSerializer
+
+class GameViewSet(viewsets.ModelViewSet):
+    queryset = Game.objects.all()
+    serializer_class = GameSerializer
+
+
+from django.urls import path, include
+from rest_framework.routers import DefaultRouter
+from .views import GameViewSet
+
+router = DefaultRouter()
+router.register(r'games', GameViewSet)
+
+urlpatterns = [
+    path('', include(router.urls)),
+]

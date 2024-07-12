@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'chapp',
-    'game'
+    'game',
+    'Tournament'
 ]
 
 ASGI_APPLICATION = "chappsite.asgi.application"

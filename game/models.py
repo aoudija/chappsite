@@ -15,5 +15,6 @@ class gameCoordinates(models.Model):
     # scoreOpponent = models.IntegerField(default=0)
     # finished = models.BooleanField(default=False)
 
+    
     def __str__(self):
         return f"{self.player.username} vs {self.opponent.username}"

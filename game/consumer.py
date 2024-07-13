@@ -6,7 +6,6 @@ from utils import gameLogic
 
 class gameConsumer(AsyncWebsocketConsumer):
     async def connect(self):
-        
         self.room_name = self.scope["url_route"]["kwargs"]["room_name"]
         self.room_group_name = f"game_{self.room_name}"
         # self.username = self.scope['user'].username

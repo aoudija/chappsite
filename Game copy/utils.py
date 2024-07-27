@@ -9,7 +9,8 @@ def gameLogic(data):
 
     gc = Match.objects.get(
         player = player,
-        opponent = opponent
+        opponent = opponent,
+        id = data['id']
         )
     #-------------ballAnimation-------------
     gc.ball_x += gc.ball_speed_x
